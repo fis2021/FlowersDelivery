@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="725.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FD.Controller.LoginController">
+    <left>
+        <AnchorPane prefHeight="483.0" prefWidth="252.0" style="-fx-background-color: #0DBBE0;" BorderPane.alignment="CENTER">
+            <children>
+                <Text fill="#dd0707" layoutX="57.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GIFTINO">
+                    <font>
+                        <Font name="Agency FB" size="59.0" />
+                    </font>
+                </Text>
+                <ImageView fitHeight="192.0" fitWidth="155.0" layoutX="56.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Imagini/Img1.jpeg" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="227.0" fitWidth="221.0" layoutX="17.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Imagini/Img2.jpeg" />
+                    </image>
+                </ImageView>
+                <Separator layoutX="-1.0" layoutY="276.0" prefHeight="27.0" prefWidth="258.0" />
+                <Separator layoutX="7.0" layoutY="222.0" prefHeight="13.0" prefWidth="243.0" />
+                <Separator layoutX="-1.0" layoutY="483.0" prefHeight="9.0" prefWidth="257.0" />
+                <Separator layoutX="47.0" layoutY="278.0" orientation="VERTICAL" prefHeight="215.0" prefWidth="19.0" />
+                <Separator layoutX="192.0" layoutY="276.0" orientation="VERTICAL" prefHeight="217.0" prefWidth="23.0" />
+                <Separator layoutX="11.0" layoutY="3.0" orientation="VERTICAL" prefHeight="231.0" prefWidth="15.0" />
+                <Separator layoutX="228.0" layoutY="10.0" orientation="VERTICAL" prefHeight="223.0" prefWidth="23.0" />
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane maxHeight="534.0" maxWidth="485.0" prefHeight="499.0" prefWidth="485.0" style="-fx-background-color: #0DE0D5;" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="username" layoutX="148.0" layoutY="210.0" prefHeight="35.0" prefWidth="175.0" promptText="Numele de utilizator" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </TextField>
+                <PasswordField fx:id="password" layoutX="148.0" layoutY="270.0" prefHeight="35.0" prefWidth="175.0" promptText="Parola" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </PasswordField>
+
+                <Button fx:id="login" layoutX="167.0" layoutY="345.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="137.0" text="Login" textAlignment="CENTER" textFill="#00000065">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Text layoutX="115.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="191.723388671875">
+                    <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                    </font>
+                </Text>
+                <Label fx:id="logMessage" alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="69.0" layoutY="397.0" prefHeight="83.0" prefWidth="351.0" textAlignment="JUSTIFY" textFill="#e10808">
+                    <font>
+                        <Font name="Broadway" size="13.0" />
+                    </font></Label>
+                <Button fx:id="register" layoutX="188.0" layoutY="421.0" mnemonicParsing="false" onAction="#handleRegistrationView" prefHeight="29.0" prefWidth="102.0" text="Inregistrare" textAlignment="CENTER" textFill="#00000065">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Separator layoutY="394.0" prefHeight="21.0" prefWidth="195.0" />
+                <Label alignment="CENTER" layoutX="208.0" layoutY="389.0" prefHeight="32.0" prefWidth="54.0" text="SAU" textFill="#757373">
+                    <font>
+                        <Font name="Agency FB" size="22.0" />
+                    </font>
+                </Label>
+                <Separator layoutX="276.0" layoutY="399.0" prefHeight="12.0" prefWidth="202.0" />
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="160.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Imagini/Logo.jpeg" />
+                    </image>
+                </ImageView>
+                <Separator layoutX="136.0" layoutY="163.0" prefWidth="200.0" />
+                <Separator layoutX="139.0" layoutY="13.0" prefWidth="200.0" />
+                <Separator layoutX="307.0" layoutY="-11.0" orientation="VERTICAL" prefHeight="200.0" />
+                <Separator layoutX="157.0" layoutY="-11.0" orientation="VERTICAL" prefHeight="200.0" />
+                <Label layoutX="14.0" layoutY="466.0" prefHeight="21.0" prefWidth="158.0" text="Created by FlowersDelivery" textFill="#6f6a6a" />
+                <Label alignment="CENTER" layoutX="384.0" layoutY="467.0" prefHeight="20.0" prefWidth="94.0" text="GIFTINO" textAlignment="CENTER" textFill="#6f6a6a" />
+                <Separator layoutX="-31.0" orientation="VERTICAL" prefHeight="490.0" prefWidth="62.0" />
+            </children>
+            <styleClass>
+                <String fx:value="right" />
+                <String fx:value="responsive" />
+            </styleClass>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </AnchorPane>
+    </center>
+</BorderPane>
