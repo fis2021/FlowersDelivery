@@ -16,7 +16,7 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("pagina_login.fxml")));
 
-        primaryStage.setTitle("Welcome");
+        primaryStage.setTitle("FlowersDelivery");
         primaryStage.setScene(new Scene(root, 725, 490));
         primaryStage.show();
     }

@@ -28,62 +28,48 @@ public class LoginController {
     @FXML
     private Button regButton;
 
-    public void handleRegistrationView(ActionEvent actionEvent) {
-    }
 
-   public void handleRegistrationView() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
+   public void inregistrare() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("pagina_inregistrare.fxml"));
         Stage scene= (Stage) logButton.getScene().getWindow();
         scene.setTitle("GIFTINO");
         scene.setScene(new Scene(root,725,490));
     }
 
-    public void  handleLoginAction() throws IOException {
-        try
+    public void  handleLoginAction() throws IOException, NumeIncorect, ParolaIncorecta {
+        ClientS.userExists(usernameField.getText(),passwordField.getText());
+        //   logMessage.setText("Successful log in");
+        if(ClientS.checkIsAdmin(usernameField.getText())==true)
         {
-            ClientS.userExists(usernameField.getText(),passwordField.getText());
-            //   logMessage.setText("Successful log in");
-            if(ClientS.checkIsAdmin(usernameField.getText())==true)
-            {
-                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("admin_main_page.fxml"));
-                Stage scene= (Stage) logButton.getScene().getWindow();
-                scene.setTitle("Admin");
-                scene.setScene(new Scene(root,720,490));
-                scene.setResizable(true);
-                //scene.setMinHeight(1080);
-                //scene.setMinWidth(1920);
-                //scene.setMaxHeight(1080);
-                //scene.setMaxWidth(1920);
-                //scene.setTitle("Client");
-                //scene.setFullScreen(true);
-
-
-            }
-            else
-            {
-                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("client_main_page.fxml"));
-                Stage scene= (Stage) logButton.getScene().getWindow();
-                scene.setScene(new Scene(root,720,490));
-                scene.setResizable(true);
-                //  scene.setMinHeight(1080);
-                // scene.setMinWidth(1920);
-                // scene.setMaxHeight(1080);
-                //scene.setMaxWidth(1920);
-                //scene.setTitle("Client");
-                //scene.setFullScreen(true);
-
-            }
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("admin_main_page.fxml"));
+            Stage scene= (Stage) logButton.getScene().getWindow();
+            scene.setTitle("Admin");
+            scene.setScene(new Scene(root,720,490));
+            scene.setResizable(true);
+            //scene.setMinHeight(1080);
+            //scene.setMinWidth(1920);
+            //scene.setMaxHeight(1080);
+            //scene.setMaxWidth(1920);
+            //scene.setTitle("Client");
+            //scene.setFullScreen(true);
 
 
         }
-        catch(NumeIncorect e)
+        else
         {
-             //logMessage.setText(e.getMessage());
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("client_main_page.fxml"));
+            Stage scene= (Stage) logButton.getScene().getWindow();
+            scene.setScene(new Scene(root,720,490));
+            scene.setResizable(true);
+            //  scene.setMinHeight(1080);
+            // scene.setMinWidth(1920);
+            // scene.setMaxHeight(1080);
+            //scene.setMaxWidth(1920);
+            //scene.setTitle("Client");
+            //scene.setFullScreen(true);
 
-        }catch(ParolaIncorecta e)
-        {
-             //logMessage.setText(e.getMessage());
         }
+
 
     }
 
