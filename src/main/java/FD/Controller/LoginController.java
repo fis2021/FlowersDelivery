@@ -31,7 +31,7 @@ public class LoginController {
 
    public void inregistrare() throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("pagina_inregistrare.fxml"));
-        Stage scene= (Stage) logButton.getScene().getWindow();
+        Stage scene= (Stage) regButton.getScene().getWindow();
         scene.setTitle("GIFTINO");
         scene.setScene(new Scene(root,725,490));
     }

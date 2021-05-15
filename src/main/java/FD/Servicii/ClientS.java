@@ -30,11 +30,11 @@ public class ClientS {
         userRepository = database.getRepository(Client.class);
     }
 
-    public static void addUser(String username,String password,String name,String email,String address,String phone) throws NumeUtilizatorExistent, CampuriNecompletate, NumeUtilizatorExistent, LiteraMare {
-        AllFieldsCompleted(username,password,name,email,address,phone);
+    public static void addUser(String username,String password,String email,String address,String phone) throws NumeUtilizatorExistent, CampuriNecompletate, NumeUtilizatorExistent, LiteraMare {
+        AllFieldsCompleted(username,password,email,address,phone);
         checkUserDoesNotAlreadyExist(username);
         LiteraMareE(password);
-        Client user=new Client(username, encodePassword(username, password), name, email, address, phone);
+        Client user=new Client(username, encodePassword(username, password), email, address, phone);
         //user.setisAdmin();
         userRepository.insert(user);
 
@@ -72,26 +72,26 @@ public class ClientS {
             return true;
 
     }
-    public static void AllFieldsCompleted(String username, String password, String name, String email, String address, String phone) throws  CampuriNecompletate {
+    public static void AllFieldsCompleted(String username, String password,String email, String address, String phone) throws  CampuriNecompletate {
         Pattern pattern = Pattern.compile("[\\S+]");
         Matcher matcher1 = pattern.matcher(username);
         Matcher matcher2 = pattern.matcher(password);
         Matcher matcher3 = pattern.matcher(email);
         Matcher matcher4= pattern.matcher(address);
         Matcher matcher5=pattern.matcher(phone);
-        Matcher matcher6=pattern.matcher(name);
+
         boolean matchFound1 = matcher1.find();
         boolean matchFound2 = matcher2.find();
         boolean matchFound3 = matcher3.find();
         boolean matchFound4 = matcher4.find();
         boolean matchFound5 = matcher5.find();
-        boolean matchFound6 = matcher6.find();
+
         if(!matchFound1 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
         if(!matchFound2 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
         if(!matchFound3 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
         if(!matchFound4 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
         if(!matchFound5 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
-        if(!matchFound6) throw new  CampuriNecompletate("Trebuie completate toate campurile!");
+
 
     }
 
@@ -122,15 +122,15 @@ public class ClientS {
         if(ok2==0)
             throw new NumeIncorect("Introduced password is incorrect");
     }
-    public static void addAdmin(String username, String password,String name,String email,String address,String phone) throws LiteraMare, CampuriNecompletate, LiteraMare, NumeUtilizatorExistent {
+    public static void addAdmin(String username, String password,String email,String address,String phone) throws LiteraMare, CampuriNecompletate, LiteraMare, NumeUtilizatorExistent {
         try {
-            AllFieldsCompleted(username,password,name,email,address,phone);
+            AllFieldsCompleted(username,password,email,address,phone);
         } catch (CampuriNecompletate e) {
             e.printStackTrace();
         }
         checkUserDoesNotAlreadyExist(username);
         LiteraMareE(password);
-        Client u=new Client(username,encodePassword(username,password),name,email,address,phone);
+        Client u=new Client(username,encodePassword(username,password),email,address,phone);
         u.setisAdmin();
         userRepository.insert(u);
     }
