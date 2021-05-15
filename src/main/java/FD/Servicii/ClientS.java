@@ -1,6 +1,9 @@
 package FD.Servicii;
 
 
+
+import FD.Exceptii.*;
+
 import FD.Utilizatori.Client;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.Cursor;
@@ -14,9 +17,15 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+import static FD.Servicii.FileS.getPathToFile;
+
+public class ClientS {
+
 import static FD.Servicii.FileSystemService.getPathToFile;
 
 public class UserService {
+
 
     public static ObjectRepository<Client> userRepository;
 
@@ -29,6 +38,12 @@ public class UserService {
         userRepository = database.getRepository(Client.class);
     }
 
+
+    public static void addUser(String username,String password,String name,String email,String address,String phone) throws NumeUtilizatorExistent, CampuriNecompletate, NumeUtilizatorExistent, LiteraMare {
+        AllFieldsCompleted(username,password,name,email,address,phone);
+        checkUserDoesNotAlreadyExist(username);
+        LiteraMareE(password);
+
     public static void addUser(String username,String password,String name,String email,String address,String phone) throws UsernameAlreadyExistException, NoUpperCaseException, UncompletedFieldsException, UsernameAlreadyExistException {
         try {
             AllFieldsCompleted(username,password,name,email,address,phone);
@@ -37,6 +52,7 @@ public class UserService {
         }
         checkUserDoesNotAlreadyExist(username);
         UpperCaseExists(password);
+
         Client user=new Client(username, encodePassword(username, password), name, email, address, phone);
         //user.setisAdmin();
         userRepository.insert(user);
@@ -44,12 +60,20 @@ public class UserService {
     }
 
 
+
+    private static void checkUserDoesNotAlreadyExist(String username) throws NumeUtilizatorExistent {
+
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistException {
+
         Cursor<Client> cursor = userRepository.find();
         for (Client user : cursor) {
 //            if (Objects.equals(username, user.getUsername()))
             if (username.equals(user.getUsername()))
-            {   throw new UsernameAlreadyExistException(username);
+
+            {   throw new NumeUtilizatorExistent(username);
+
+           {   throw new UsernameAlreadyExistException(username);
+
 
             }
         }
@@ -65,17 +89,29 @@ public class UserService {
         }
         return false;
     }
+
+    public static boolean LiteraMareE(String password) throws LiteraMare
+
     public static boolean UpperCaseExists(String password) throws NoUpperCaseException
+
     {
         Pattern pattern = Pattern.compile("[A-Z]");
         Matcher matcher = pattern.matcher(password);
         boolean matchFound = matcher.find();
+
+        if(!matchFound) throw new LiteraMare("Trebuie sa contina cel putin o litera mare!");
+
         if(!matchFound) throw new NoUpperCaseException("Your password must contain at least one upper case!");
+
         else
             return true;
 
     }
+
+    public static void AllFieldsCompleted(String username, String password, String name, String email, String address, String phone) throws  CampuriNecompletate {
+
     public static void AllFieldsCompleted(String username, String password, String name, String email, String address, String phone) throws  UncompletedFieldsException {
+
         Pattern pattern = Pattern.compile("[\\S+]");
         Matcher matcher1 = pattern.matcher(username);
         Matcher matcher2 = pattern.matcher(password);
@@ -89,12 +125,21 @@ public class UserService {
         boolean matchFound4 = matcher4.find();
         boolean matchFound5 = matcher5.find();
         boolean matchFound6 = matcher6.find();
+
+        if(!matchFound1 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
+        if(!matchFound2 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
+        if(!matchFound3 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
+        if(!matchFound4 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
+        if(!matchFound5 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
+        if(!matchFound6) throw new  CampuriNecompletate("Trebuie completate toate campurile!");
+
         if(!matchFound1 ) throw new UncompletedFieldsException("Your must complete all the fields!");
         if(!matchFound2 ) throw new UncompletedFieldsException("Your must complete all the fields!");
         if(!matchFound3 ) throw new UncompletedFieldsException("Your must complete all the fields!");
         if(!matchFound4 ) throw new UncompletedFieldsException("Your must complete all the fields!");
         if(!matchFound5 ) throw new UncompletedFieldsException("Your must complete all the fields!");
         if(!matchFound6) throw new UncompletedFieldsException("Your must complete all the fields!");
+
 
     }
 
@@ -109,7 +154,11 @@ public class UserService {
         return new String(hashedPassword, StandardCharsets.UTF_8)
                 .replace("\"", ""); //to be able to save in JSON format
     }
+
+    public static void userExists(String username,String password) throws NumeIncorect, ParolaIncorecta {
+
     public static void userExists(String username,String password) throws InvalidUsernameException, IncorrectPasswordException {
+
         int ok=0,ok2=0;
         for(Client user :userRepository.find())
         {
@@ -121,6 +170,20 @@ public class UserService {
             }
         }
         if(ok==0)
+
+            throw new NumeIncorect("Introduced username is incorrect");
+        if(ok2==0)
+            throw new NumeIncorect("Introduced password is incorrect");
+    }
+    public static void addAdmin(String username, String password,String name,String email,String address,String phone) throws LiteraMare, CampuriNecompletate, LiteraMare, NumeUtilizatorExistent {
+        try {
+            AllFieldsCompleted(username,password,name,email,address,phone);
+        } catch (CampuriNecompletate e) {
+            e.printStackTrace();
+        }
+        checkUserDoesNotAlreadyExist(username);
+        LiteraMareE(password);
+
             throw new InvalidUsernameException("Introduced username is incorrect");
         if(ok2==0)
             throw new IncorrectPasswordException("Introduced password is incorrect");
@@ -133,6 +196,7 @@ public class UserService {
         }
         checkUserDoesNotAlreadyExist(username);
         UpperCaseExists(password);
+
         Client u=new Client(username,encodePassword(username,password),name,email,address,phone);
         u.setisAdmin();
         userRepository.insert(u);
