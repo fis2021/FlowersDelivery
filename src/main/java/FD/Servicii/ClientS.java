@@ -1,6 +1,7 @@
 package FD.Servicii;
 
 
+import FD.Exceptii.*;
 import FD.Utilizatori.Client;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.Cursor;
@@ -14,9 +15,9 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static FD.Servicii.FileSystemService.getPathToFile;
+import static FD.Servicii.FileS.getPathToFile;
 
-public class UserService {
+public class ClientS {
 
     public static ObjectRepository<Client> userRepository;
 
@@ -29,27 +30,23 @@ public class UserService {
         userRepository = database.getRepository(Client.class);
     }
 
-    public static void addUser(String username,String password,String name,String email,String address,String phone) throws UsernameAlreadyExistException, NoUpperCaseException, UncompletedFieldsException, UsernameAlreadyExistException {
-        try {
-            AllFieldsCompleted(username,password,name,email,address,phone);
-        } catch (UncompletedFieldsException e) {
-            e.printStackTrace();
-        }
+    public static void addUser(String username,String password,String email,String address,String phone) throws NumeUtilizatorExistent, CampuriNecompletate, NumeUtilizatorExistent, LiteraMare {
+        AllFieldsCompleted(username,password,email,address,phone);
         checkUserDoesNotAlreadyExist(username);
-        UpperCaseExists(password);
-        Client user=new Client(username, encodePassword(username, password), name, email, address, phone);
+        LiteraMareE(password);
+        Client user=new Client(username, encodePassword(username, password), email, address, phone);
         //user.setisAdmin();
         userRepository.insert(user);
 
     }
 
 
-    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistException {
+    private static void checkUserDoesNotAlreadyExist(String username) throws NumeUtilizatorExistent {
         Cursor<Client> cursor = userRepository.find();
         for (Client user : cursor) {
 //            if (Objects.equals(username, user.getUsername()))
             if (username.equals(user.getUsername()))
-            {   throw new UsernameAlreadyExistException(username);
+            {   throw new NumeUtilizatorExistent(username);
 
             }
         }
@@ -65,36 +62,36 @@ public class UserService {
         }
         return false;
     }
-    public static boolean UpperCaseExists(String password) throws NoUpperCaseException
+    public static boolean LiteraMareE(String password) throws LiteraMare
     {
         Pattern pattern = Pattern.compile("[A-Z]");
         Matcher matcher = pattern.matcher(password);
         boolean matchFound = matcher.find();
-        if(!matchFound) throw new NoUpperCaseException("Your password must contain at least one upper case!");
+        if(!matchFound) throw new LiteraMare("Trebuie sa contina cel putin o litera mare!");
         else
             return true;
 
     }
-    public static void AllFieldsCompleted(String username, String password, String name, String email, String address, String phone) throws  UncompletedFieldsException {
+    public static void AllFieldsCompleted(String username, String password,String email, String address, String phone) throws  CampuriNecompletate {
         Pattern pattern = Pattern.compile("[\\S+]");
         Matcher matcher1 = pattern.matcher(username);
         Matcher matcher2 = pattern.matcher(password);
         Matcher matcher3 = pattern.matcher(email);
         Matcher matcher4= pattern.matcher(address);
         Matcher matcher5=pattern.matcher(phone);
-        Matcher matcher6=pattern.matcher(name);
+
         boolean matchFound1 = matcher1.find();
         boolean matchFound2 = matcher2.find();
         boolean matchFound3 = matcher3.find();
         boolean matchFound4 = matcher4.find();
         boolean matchFound5 = matcher5.find();
-        boolean matchFound6 = matcher6.find();
-        if(!matchFound1 ) throw new UncompletedFieldsException("Your must complete all the fields!");
-        if(!matchFound2 ) throw new UncompletedFieldsException("Your must complete all the fields!");
-        if(!matchFound3 ) throw new UncompletedFieldsException("Your must complete all the fields!");
-        if(!matchFound4 ) throw new UncompletedFieldsException("Your must complete all the fields!");
-        if(!matchFound5 ) throw new UncompletedFieldsException("Your must complete all the fields!");
-        if(!matchFound6) throw new UncompletedFieldsException("Your must complete all the fields!");
+
+        if(!matchFound1 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
+        if(!matchFound2 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
+        if(!matchFound3 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
+        if(!matchFound4 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
+        if(!matchFound5 ) throw new CampuriNecompletate("Trebuie completate toate campurile!");
+
 
     }
 
@@ -109,7 +106,7 @@ public class UserService {
         return new String(hashedPassword, StandardCharsets.UTF_8)
                 .replace("\"", ""); //to be able to save in JSON format
     }
-    public static void userExists(String username,String password) throws InvalidUsernameException, IncorrectPasswordException {
+    public static void userExists(String username,String password) throws NumeIncorect, ParolaIncorecta {
         int ok=0,ok2=0;
         for(Client user :userRepository.find())
         {
@@ -121,19 +118,19 @@ public class UserService {
             }
         }
         if(ok==0)
-            throw new InvalidUsernameException("Introduced username is incorrect");
+            throw new NumeIncorect("Introduced username is incorrect");
         if(ok2==0)
-            throw new IncorrectPasswordException("Introduced password is incorrect");
+            throw new NumeIncorect("Introduced password is incorrect");
     }
-    public static void addAdmin(String username, String password,String name,String email,String address,String phone) throws NoUpperCaseException, UncompletedFieldsException, UsernameAlreadyExistException {
+    public static void addAdmin(String username, String password,String email,String address,String phone) throws LiteraMare, CampuriNecompletate, LiteraMare, NumeUtilizatorExistent {
         try {
-            AllFieldsCompleted(username,password,name,email,address,phone);
-        } catch (UncompletedFieldsException e) {
+            AllFieldsCompleted(username,password,email,address,phone);
+        } catch (CampuriNecompletate e) {
             e.printStackTrace();
         }
         checkUserDoesNotAlreadyExist(username);
-        UpperCaseExists(password);
-        Client u=new Client(username,encodePassword(username,password),name,email,address,phone);
+        LiteraMareE(password);
+        Client u=new Client(username,encodePassword(username,password),email,address,phone);
         u.setisAdmin();
         userRepository.insert(u);
     }
