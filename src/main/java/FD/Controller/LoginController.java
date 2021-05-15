@@ -29,8 +29,13 @@ public class LoginController {
     private Button regButton;
 
 
+
    public void inregistrare() throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("pagina_inregistrare.fxml"));
+
+   public void handleRegistrationView() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
+
         Stage scene= (Stage) logButton.getScene().getWindow();
         scene.setTitle("GIFTINO");
         scene.setScene(new Scene(root,725,490));
@@ -69,7 +74,6 @@ public class LoginController {
             //scene.setFullScreen(true);
 
         }
-
 
     }
 

@@ -47,7 +47,11 @@
                 </PasswordField>
                 <Button layoutX="175.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleRegisterAction" prefHeight="29.0" prefWidth="104.0" text="Inregistrare" textAlignment="CENTER" textFill="#00000065">
                     <font>
+
                         <Font name="Agency FB" size="18.0" />
+
+                        <Font name="System Bold" size="12.0" />
+
                     </font>
                 </Button>
                 <TextField fx:id="email" layoutX="147.0" layoutY="232.0" promptText="Email" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
