@@ -1,4 +1,4 @@
-package FD.Utilizatori;
+package FD.Servicii;
 
 import FD.Utilizatori.Produs;
 import javafx.collections.ObservableList;
