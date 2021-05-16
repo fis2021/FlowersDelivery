@@ -44,10 +44,7 @@
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </TextField>
-
-                <PasswordField fx:id="passwordField" layoutX="147.0" layoutY="292.0" prefHeight="35.0" prefWidth="175.0" promptText="Parola" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;"></PasswordField>
-
-                <PasswordField fx:id="password" layoutX="147.0" layoutY="292.0" prefHeight="35.0" prefWidth="175.0" promptText="Parola" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
+                <PasswordField fx:id="passwordField" layoutX="147.0" layoutY="292.0" prefHeight="35.0" prefWidth="175.0" promptText="Parola" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>

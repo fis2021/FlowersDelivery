@@ -1,6 +1,8 @@
 
 import FD.Servicii.ClientS;
+import FD.Servicii.CosS;
 import FD.Servicii.FileS;
+import FD.Servicii.ProdusS;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,8 +18,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
-
+        ProdusS.initProdusDatabase();
         ClientS.initDatabase();
+        CosS.initProdusDatabase();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("pagina_login.fxml")));
         primaryStage.setTitle("FlowersDelivery");
         primaryStage.setScene(new Scene(root, 725, 490));

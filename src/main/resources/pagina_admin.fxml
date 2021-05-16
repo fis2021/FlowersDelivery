@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="769.0" style="-fx-background-color: #0DE0D5;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FD.Controller.MainController">
+    <children>
+        <TableView fx:id="tabelproduse" editable="true" layoutX="65.0" layoutY="93.0" prefHeight="354.0" prefWidth="640.0" style="-fx-background-color: #1D70E4;">
+            <columns>
+                <TableColumn fx:id="nume" onEditCommit="#OnEditChange" prefWidth="202.1999969482422" style="-fx-background-color: #E41D1D;" text="Nume" />
+                <TableColumn fx:id="pret" prefWidth="170.5999755859375" style="-fx-background-color: #EEF10F;" text="Pret" />
+                <TableColumn fx:id="detalii" prefWidth="268.60003662109375" style="-fx-background-color: #0FF130;" text="Detalii" />
+            </columns>
+        </TableView>
+        <ImageView fitHeight="230.0" fitWidth="238.0" layoutX="290.0" layoutY="-76.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Imagini/Logo_PNG.gif" />
+            </image>
+        </ImageView>
+        <Button fx:id="backButton" layoutX="581.0" layoutY="17.0" mnemonicParsing="false" onAction="#backLogin" prefHeight="40.0" prefWidth="123.0" style="-fx-background-color: #1D70E4;" text="Logout" textFill="#d9ea1f">
+            <font>
+                <Font name="Agency FB" size="23.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnAdauga" layoutX="167.0" layoutY="473.0" mnemonicParsing="false" onAction="#AdaugaP" prefHeight="40.0" prefWidth="123.0" style="-fx-background-color: #E41D1D;" text="Adauga Produs" textFill="#0cf3ff">
+            <font>
+                <Font name="Agency FB" size="20.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnStergere" layoutX="520.0" layoutY="473.0" mnemonicParsing="false" onAction="#StergeB" prefHeight="40.0" prefWidth="123.0" style="-fx-background-color: #EEF10F;" text="Sterge Produs" textFill="#d5110e">
+            <font>
+                <Font name="Agency FB" size="20.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnComenzi" layoutX="65.0" layoutY="17.0" mnemonicParsing="false" onAction="#LComenzi" prefHeight="44.0" prefWidth="123.0" style="-fx-background-color: #0FF130;" text="Lista Comenzi" textFill="#fa0606">
+            <font>
+                <Font name="Agency FB" size="19.0" />
+            </font>
+        </Button>
+        <Separator layoutX="290.0" layoutY="483.0" prefHeight="21.0" prefWidth="230.0" />
+        <Separator layoutY="486.0" prefHeight="15.0" prefWidth="167.0" />
+        <Separator layoutX="643.0" layoutY="486.0" prefHeight="15.0" prefWidth="123.0" />
+        <Separator layoutX="189.0" layoutY="31.0" prefHeight="21.0" prefWidth="156.0" />
+        <Separator layoutX="456.0" layoutY="31.0" prefHeight="21.0" prefWidth="123.0" />
+      <Label fx:id="LProd" alignment="CENTER" layoutX="183.0" layoutY="61.0" prefHeight="31.0" prefWidth="404.0" textFill="#f01202">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+    </children>
+</Pane>
