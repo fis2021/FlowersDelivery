@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="492.0" prefWidth="680.0" style="-fx-background-color: #08C4F9;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FD.Controller.ComenziController">
+   <children>
+      <TableView fx:id="tabelproduse" layoutX="61.0" layoutY="113.0" prefHeight="323.0" prefWidth="557.0" style="-fx-background-color: #D5F908;">
+        <columns>
+          <TableColumn fx:id="nume" prefWidth="168.4000244140625" style="-fx-background-color: #F90854;" text="Nume" />
+          <TableColumn fx:id="pret" prefWidth="145.99996948242188" style="-fx-background-color: #EBF908;" text="Pret" />
+            <TableColumn fx:id="detalii" prefWidth="246.0" style="-fx-background-color: #0850F9;" text="Detalii" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="175.0" fitWidth="231.0" layoutX="225.0" layoutY="-62.0" pickOnBounds="true">
+         <image>
+            <Image url="@Imagini/Logo_PNG.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="95.0" fitWidth="136.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagini/flower_png.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="172.0" layoutX="562.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagini/flower_png.jpeg" />
+         </image>
+      </ImageView>
+      <Button fx:id="BInapoi" layoutX="463.0" layoutY="438.0" mnemonicParsing="false" onAction="#BInapoi" prefHeight="40.0" prefWidth="156.0" text="Inapoi la Meniu" textFill="#ea0404">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="BAccept" layoutX="62.0" layoutY="438.0" mnemonicParsing="false" onAction="#BAccept" prefHeight="40.0" prefWidth="156.0" text="Accepta comanda" textFill="#fd0011">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Separator layoutX="113.0" layoutY="46.0" prefHeight="22.0" prefWidth="465.0" />
+      <Separator layoutX="217.0" layoutY="436.0" prefHeight="22.0" prefWidth="246.0" />
+      <Separator layoutX="-1.0" layoutY="436.0" prefHeight="22.0" prefWidth="63.0" />
+      <Separator layoutX="620.0" layoutY="436.0" prefHeight="22.0" prefWidth="56.0" />
+      <Label fx:id="Stat" alignment="CENTER" layoutX="129.0" layoutY="57.0" prefHeight="40.0" prefWidth="421.0" textFill="#ed0404">
+         <font>
+            <Font name="Agency FB" size="32.0" />
+         </font></Label>
+   </children>
+</AnchorPane>

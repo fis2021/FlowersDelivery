@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="725.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistrationController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="725.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FD.Controller.InregistrareController">
     <left>
         <AnchorPane prefHeight="400.0" prefWidth="253.0" style="-fx-background-color: #C70DE0;" BorderPane.alignment="CENTER">
             <children>
@@ -35,37 +35,41 @@
     <center>
         <AnchorPane maxHeight="502.0" maxWidth="471.0" prefHeight="491.0" prefWidth="471.0" style="-fx-background-color: #F53AA8;" styleClass="right" BorderPane.alignment="CENTER">
             <children>
-                <TextField fx:id="username" layoutX="147.0" layoutY="149.0" promptText="Nume de utilizator" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
+                <TextField fx:id="usernameField" layoutX="147.0" layoutY="149.0" promptText="Nume de utilizator" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </TextField>
-                <PasswordField fx:id="password" layoutX="147.0" layoutY="191.0" promptText="Parola" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
+                <PasswordField fx:id="passwordField" layoutX="147.0" layoutY="191.0" promptText="Parola" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </PasswordField>
                 <Button layoutX="175.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleRegisterAction" prefHeight="29.0" prefWidth="104.0" text="Inregistrare" textAlignment="CENTER" textFill="#00000065">
                     <font>
+
                         <Font name="Agency FB" size="18.0" />
+
+                        <Font name="System Bold" size="12.0" />
+
                     </font>
                 </Button>
-                <TextField fx:id="email" layoutX="147.0" layoutY="232.0" promptText="Email" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
+                <TextField fx:id="emailField" layoutX="147.0" layoutY="232.0" promptText="Email" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="address" layoutX="147.0" layoutY="273.0" promptText="Adresa" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
+                <TextField fx:id="addressField" layoutX="147.0" layoutY="273.0" promptText="Adresa" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="phone_number" layoutX="147.0" layoutY="316.0" promptText="Numar de telefon" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
+                <TextField fx:id="phoneField" layoutX="147.0" layoutY="316.0" promptText="Numar de telefon" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </TextField>
-                <Button fx:id="login" layoutX="20.0" layoutY="435.0" mnemonicParsing="false" onAction="#handleLogAction" prefHeight="33.0" prefWidth="109.0" text="Spre Logare" textAlignment="CENTER" textFill="#00000065">
+                <Button fx:id="logButton" layoutX="20.0" layoutY="435.0" mnemonicParsing="false" onAction="#handleLogAction" prefHeight="33.0" prefWidth="109.0" text="Spre Logare" textAlignment="CENTER" textFill="#00000065">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
@@ -81,6 +85,10 @@
                 <Separator layoutX="-2.0" layoutY="440.0" prefHeight="23.0" prefWidth="26.0" />
                 <Separator layoutX="-14.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="491.0" prefWidth="27.0" />
                 <Label alignment="CENTER" layoutX="307.0" layoutY="460.0" prefHeight="26.0" prefWidth="155.0" text="Created by FlowersDelivery" textFill="#675e5e" />
+            <Label fx:id="registrationMessage" alignment="CENTER" layoutX="97.0" layoutY="93.0" prefHeight="46.0" prefWidth="259.0" textFill="#1f08f5">
+               <font>
+                  <Font name="Agency FB" size="20.0" />
+               </font></Label>
             </children>
         </AnchorPane>
     </center>

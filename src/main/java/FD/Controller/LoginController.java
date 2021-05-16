@@ -29,52 +29,48 @@ public class LoginController {
     private Button regButton;
 
 
-
-   public void inregistrare() throws IOException {
+    public void inregistrare() throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("pagina_inregistrare.fxml"));
-
-   public void handleRegistrationView() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
-
-        Stage scene= (Stage) logButton.getScene().getWindow();
+        Stage scene= (Stage) regButton.getScene().getWindow();
         scene.setTitle("GIFTINO");
         scene.setScene(new Scene(root,725,490));
     }
 
     public void  handleLoginAction() throws IOException, NumeIncorect, ParolaIncorecta {
-        ClientS.userExists(usernameField.getText(),passwordField.getText());
-        //   logMessage.setText("Successful log in");
-        if(ClientS.checkIsAdmin(usernameField.getText())==true)
+        try
         {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("admin_main_page.fxml"));
-            Stage scene= (Stage) logButton.getScene().getWindow();
-            scene.setTitle("Admin");
-            scene.setScene(new Scene(root,720,490));
-            scene.setResizable(true);
-            //scene.setMinHeight(1080);
-            //scene.setMinWidth(1920);
-            //scene.setMaxHeight(1080);
-            //scene.setMaxWidth(1920);
-            //scene.setTitle("Client");
-            //scene.setFullScreen(true);
+            ClientS.userExists(usernameField.getText(),passwordField.getText());
+            //   logMessage.setText("Successful log in");
+            if(ClientS.checkIsAdmin(usernameField.getText())==true)
+            {
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("pagina_admin.fxml"));
+                Stage scene= (Stage) logButton.getScene().getWindow();
+                scene.setTitle("Admin");
+                scene.setScene(new Scene(root,800,550));
+                scene.setResizable(true);
+
+
+            }
+            else
+            {
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("pagina_client.fxml"));
+                Stage scene= (Stage) logButton.getScene().getWindow();
+                scene.setScene(new Scene(root,780,510));
+                scene.setResizable(true);
+
+
+            }
 
 
         }
-        else
+        catch(NumeIncorect e)
         {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("client_main_page.fxml"));
-            Stage scene= (Stage) logButton.getScene().getWindow();
-            scene.setScene(new Scene(root,720,490));
-            scene.setResizable(true);
-            //  scene.setMinHeight(1080);
-            // scene.setMinWidth(1920);
-            // scene.setMaxHeight(1080);
-            //scene.setMaxWidth(1920);
-            //scene.setTitle("Client");
-            //scene.setFullScreen(true);
+            Status.setText("Numele si parola nu corespund!");
 
+        }catch(ParolaIncorecta e)
+        {
+            Status.setText("Numele si parola nu corespund!");
         }
-
     }
 
 }

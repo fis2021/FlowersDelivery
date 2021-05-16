@@ -14,7 +14,7 @@ public class Client {
     public Client() {
     }
 
-    public Client(String username, String password, String name, String email, String address, String phone) {
+    public Client(String username, String password, String email, String address, String phone) {
         this.nume = username;
         this.parola = password;
         this.adresa = address;
@@ -87,3 +87,4 @@ public class Client {
         return result;
     }
 }
+
