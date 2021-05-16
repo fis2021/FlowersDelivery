@@ -39,21 +39,20 @@
     <center>
         <AnchorPane maxHeight="534.0" maxWidth="485.0" prefHeight="499.0" prefWidth="485.0" style="-fx-background-color: #0DE0D5;" BorderPane.alignment="CENTER">
             <children>
-                <TextField fx:id="username" layoutX="147.0" layoutY="245.0" prefHeight="35.0" prefWidth="175.0" promptText="Numele de utilizator" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
+                <TextField fx:id="usernameField" layoutX="147.0" layoutY="245.0" prefHeight="35.0" prefWidth="175.0" promptText="Numele de utilizator" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </TextField>
 
-                <PasswordField fx:id="passwordField" layoutX="147.0" layoutY="292.0" prefHeight="35.0" prefWidth="175.0" promptText="Parola" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
 
-                <PasswordField fx:id="password" layoutX="147.0" layoutY="292.0" prefHeight="35.0" prefWidth="175.0" promptText="Parola" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
+                <PasswordField fx:id="passwordField" layoutX="147.0" layoutY="292.0" prefHeight="35.0" prefWidth="175.0" promptText="Parola" style="-fx-background-color: #DCDCDC; -fx-border-color: #000000;">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </PasswordField>
 
-                <Button fx:id="login" layoutX="167.0" layoutY="345.0" mnemonicParsing="false" onAction="#handleLoginAction" prefHeight="46.0" prefWidth="137.0" text="Login" textAlignment="CENTER" textFill="#00000065">
+                <Button fx:id="logButton" layoutX="167.0" layoutY="345.0" mnemonicParsing="false" onAction="#handleLoginAction" prefHeight="46.0" prefWidth="137.0" text="Login" textAlignment="CENTER" textFill="#00000065">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
@@ -91,11 +90,11 @@
                 <Label layoutX="14.0" layoutY="466.0" prefHeight="21.0" prefWidth="158.0" text="Created by FlowersDelivery" textFill="#6f6a6a" />
                 <Label alignment="CENTER" layoutX="384.0" layoutY="467.0" prefHeight="20.0" prefWidth="94.0" text="GIFTINO" textAlignment="CENTER" textFill="#6f6a6a" />
                 <Separator layoutX="-31.0" orientation="VERTICAL" prefHeight="490.0" prefWidth="62.0" />
-            <Label fx:id="Status" alignment="CENTER" layoutX="147.0" layoutY="189.0" prefHeight="39.0" prefWidth="176.0">
-               <font>
-                  <Font name="Agency FB" size="23.0" />
-               </font>
-            </Label>
+                <Label fx:id="Status" alignment="CENTER" layoutX="56.0" layoutY="189.0" prefHeight="39.0" prefWidth="365.0">
+                    <font>
+                        <Font name="Agency FB" size="20.0" />
+                    </font>
+                </Label>
             </children>
             <styleClass>
                 <String fx:value="right" />

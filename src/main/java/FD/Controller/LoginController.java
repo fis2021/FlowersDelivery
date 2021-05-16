@@ -29,7 +29,7 @@ public class LoginController {
     private Button regButton;
 
 
-   public void inregistrare() throws IOException {
+    public void inregistrare() throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("pagina_inregistrare.fxml"));
         Stage scene= (Stage) regButton.getScene().getWindow();
         scene.setTitle("GIFTINO");
@@ -65,7 +65,7 @@ public class LoginController {
         }
         catch(NumeIncorect e)
         {
-             Status.setText("Numele si parola nu corespund!");
+            Status.setText("Numele si parola nu corespund!");
 
         }catch(ParolaIncorecta e)
         {

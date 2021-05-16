@@ -67,22 +67,22 @@ public class MainController {
         scene.setTitle("GIFTINO");
         scene.setScene(new Scene(root,700,500));
     }
-    //FD-4
+
     public void StergeB() throws  Exception{
         /*btnStergere.setOnAction(e -> {
             Produs selectedItem = tabelproduse.getSelectionModel().getSelectedItem();
             tabelproduse.getItems().remove(selectedItem);
         });*/
         try{ObservableList<Produs> allProduct, SingleProduct;
-        allProduct=tabelproduse.getItems();
-        SingleProduct=tabelproduse.getSelectionModel().getSelectedItems();
-        SingleProduct.forEach(allProduct::remove);}
+            allProduct=tabelproduse.getItems();
+            SingleProduct=tabelproduse.getSelectionModel().getSelectedItems();
+            SingleProduct.forEach(allProduct::remove);}
         catch (Exception e){
             LProd.setText("Ati sters toate elementele din tabel!");
         }
 
     }
-    //FD-3
+
     public void OnEditChange(TableColumn.CellEditEvent<Produs, String> produsStringCellEditEvent) {
         Produs prod = tabelproduse.getSelectionModel().getSelectedItem();
         prod.setNume(produsStringCellEditEvent.getNewValue());

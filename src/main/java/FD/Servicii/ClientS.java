@@ -106,7 +106,7 @@ public class ClientS {
         return new String(hashedPassword, StandardCharsets.UTF_8)
                 .replace("\"", ""); //to be able to save in JSON format
     }
-    public static void userExists(String username,String password) throws NumeIncorect, ParolaIncorecta {
+    public static boolean userExists(String username,String password) throws NumeIncorect, ParolaIncorecta {
         int ok=0,ok2=0;
         for(Client user :userRepository.find())
         {
@@ -118,9 +118,11 @@ public class ClientS {
             }
         }
         if(ok==0)
-            throw new NumeIncorect("Introduced username is incorrect");
+            throw new NumeIncorect("Numele introdus este incorect");
         if(ok2==0)
-            throw new NumeIncorect("Introduced password is incorrect");
+            throw new NumeIncorect("Numele introdus este incorect");
+
+        return true;
     }
     public static void addAdmin(String username, String password,String email,String address,String phone) throws LiteraMare, CampuriNecompletate, LiteraMare, NumeUtilizatorExistent {
         try {

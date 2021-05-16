@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="780.0" style="-fx-background-color: #08F9A3;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FD.Controller.ClientController">
+   <children>
+      <TableView fx:id="tabelproduse" layoutX="45.0" layoutY="62.0" prefHeight="358.0" prefWidth="690.0" style="-fx-background-color: #0886F9;">
+        <columns>
+          <TableColumn fx:id="nume" prefWidth="195.59999084472656" text="Nume" />
+          <TableColumn fx:id="pret" prefWidth="217.20001220703125" text="Pret" />
+            <TableColumn fx:id="detalii" prefWidth="276.4000244140625" text="Detalii" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="177.0" fitWidth="208.0" layoutX="310.0" layoutY="-65.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagini/Logo_PNG.gif" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnCos" layoutX="45.0" layoutY="14.0" mnemonicParsing="false" onAction="#ButonCos" prefHeight="35.0" prefWidth="177.0" style="-fx-background-color: #F908CD;" text="Cosul de cumparaturi" textFill="#00080b">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnLogout" layoutX="574.0" layoutY="14.0" mnemonicParsing="false" onAction="#ButonLogout" prefHeight="35.0" prefWidth="161.0" style="-fx-background-color: #F908CD;" text="Logout">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnCumpara" layoutX="285.0" layoutY="432.0" mnemonicParsing="false" onAction="#ButonCumpara" prefHeight="35.0" prefWidth="211.0" style="-fx-background-color: #F908CD;" text="Adauga produsul in cos" textFill="#161616">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="127.0" fitWidth="106.0" layoutX="-8.0" layoutY="399.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagini/flower2_png.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="96.0" fitWidth="112.0" layoutX="679.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagini/flower_png.jpeg" />
+         </image>
+      </ImageView>
+      <Separator layoutX="222.0" layoutY="32.0" prefHeight="15.0" prefWidth="353.0" />
+      <Separator layoutX="66.0" layoutY="439.0" prefHeight="21.0" prefWidth="219.0" />
+      <Separator layoutX="496.0" layoutY="448.0" prefWidth="200.0" />
+   </children>
+</Pane>

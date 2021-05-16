@@ -15,6 +15,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.beans.EventHandler;
+
 public class ClientController {
 
     @FXML
@@ -62,3 +64,4 @@ public class ClientController {
         }
     }
 }
+
