@@ -82,7 +82,7 @@ public class MainController {
         }
 
     }
-
+    //FD-3
     public void OnEditChange(TableColumn.CellEditEvent<Produs, String> produsStringCellEditEvent) {
         Produs prod = tabelproduse.getSelectionModel().getSelectedItem();
         prod.setNume(produsStringCellEditEvent.getNewValue());
