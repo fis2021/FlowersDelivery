@@ -67,7 +67,7 @@ public class MainController {
         scene.setTitle("GIFTINO");
         scene.setScene(new Scene(root,700,500));
     }
-
+    //FD-4
     public void StergeB() throws  Exception{
         /*btnStergere.setOnAction(e -> {
             Produs selectedItem = tabelproduse.getSelectionModel().getSelectedItem();
